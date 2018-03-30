@@ -25,7 +25,7 @@ to change rotation mode - r*/
 #define Y (1)
 
 //size
-float size_ball = 0.5;
+float size_ball = 0.4;
 float size_pyramid = 0.5;
 //color
 float color_ball[3];
@@ -113,7 +113,7 @@ void drawBall(float size)
 
 	glBegin(GL_QUADS);
 	//Ball Drawing
-	glutSolidSphere(0.5, 10, 10);
+	glutSolidSphere(size_ball, 10, 10);
 	glDisable(GL_TEXTURE_2D);
 }
 
@@ -276,7 +276,7 @@ void keyboard(unsigned char key, int x, int y)
 		if (rotating_state == 0) rotating_state = 1;
 		else rotating_state = 0;
 		break;
-	case '*':
+	case '+':
 		switch (state)
 		{
 		case BALL:
@@ -452,8 +452,8 @@ void set_color()
 	}
 	else
 	{
-		color_ball[0] = 0.9; color_ball[1] = 0.2; color_ball[2] = 0.9; //colors
-		color_pyramid[0] = 0.8; color_pyramid[1] = 0.1; color_pyramid[2] = 0.2;
+		color_ball[0] = 0.294; color_ball[1] = 0.0; color_ball[2] = 0.510; //colors
+		color_pyramid[0] = 0.0; color_pyramid[1] = 0.502; color_pyramid[2] = 0.502;
 	}
 }
 
