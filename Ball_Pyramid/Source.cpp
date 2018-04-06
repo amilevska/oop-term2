@@ -13,6 +13,7 @@ to change rotation mode - r*/
 #include <stdio.h>
 #include <time.h>
 #include <iostream>
+#include <fstream>
 
 #define GL_BGR   0x80E0
 #define pi (3.14)
@@ -51,7 +52,7 @@ void init(void)
 	pos_pyramid[1] = 0.0;
 	pos_pyramid[2] = 0.0;
 
-	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 }; //отраженный свет
 	GLfloat mat_shininess[] = { 50.0 };
 	GLfloat light_position[] = { 20.2, 20.0, 30.0, 0.0 };
 	glClearColor(1, 1, 1, 1); //BACKGROUND color
@@ -394,7 +395,16 @@ void keyboard(unsigned char key, int x, int y)
 			}
 		}
 		break;
+	//	switch (key){
+		case 'f':
+		{
+					std:: ofstream myfile;
+					myfile.open("lab.txt");
+					myfile <<" x "<< pos_ball[0] <<" y "<< pos_ball[1];// << endl;
+					myfile.close();
+		}
 	}
+
 }
 
 void skeyboard(int key, int x, int y)
@@ -475,6 +485,7 @@ int main(int argc, char** argv)
 
 	glutPassiveMotionFunc(mouse);
 
-	glutMainLoop();
+	glutMainLoop();	
+	
 	return 0;
 }
